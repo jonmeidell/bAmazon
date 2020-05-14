@@ -20,3 +20,13 @@ insert into products (product_name, department_name, price, stock_quantity)
 values ("blender", "kitchen", 95.00, 70);
 insert into products (product_name, department_name, price, stock_quantity)
 values ("t-shirt", "clothing", 15.00, 25);
+insert into products (product_name, department_name, price, stock_quantity)
+values ("socks", "clothing", 3.00, 50);
+insert into products (product_name, department_name, price, stock_quantity)
+values ("grey slacks", "clothing", 25.00, 10);
+insert into products (product_name, department_name, price, stock_quantity)
+values ("blue slacks", "clothing", 25.00, 12);
+insert into products (product_name, department_name, price, stock_quantity)
+values ("stuffed animal", "toys", 13.99, 8);
+insert into products (product_name, department_name, price, stock_quantity)
+values ("blocks", "toys", 8.50, 11);
