@@ -1,5 +1,6 @@
 const mysql = require("mysql");
 const inquirer = require("inquirer");
+const PORT = process.env.PORT || 3007;
 
 const connection = mysql.createConnection({
     host: "localhost",
