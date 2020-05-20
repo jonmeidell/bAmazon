@@ -11,22 +11,22 @@ stock_quantity int(10)
 );
 
 insert into products (product_name, department_name, price, stock_quantity)
-values ("ream of paper", "office supplies", 5.00, 10);
+values ("ream of paper", "office supplies", 5.99, 10);
 insert into products (product_name, department_name, price, stock_quantity)
-values ("package of pens", "office supplies", 3.00, 25);
+values ("package of pens", "office supplies", 3.99, 25);
 insert into products (product_name, department_name, price, stock_quantity)
-values ("coffee cup", "kitchen", 5.00, 50);
+values ("coffee cup", "kitchen", 5.99, 50);
 insert into products (product_name, department_name, price, stock_quantity)
-values ("blender", "kitchen", 95.00, 70);
+values ("blender", "kitchen", 94.99, 70);
 insert into products (product_name, department_name, price, stock_quantity)
-values ("t-shirt", "clothing", 15.00, 25);
+values ("t-shirt", "clothing", 14.95, 25);
 insert into products (product_name, department_name, price, stock_quantity)
-values ("socks", "clothing", 3.00, 50);
+values ("socks", "clothing", 3.99, 50);
 insert into products (product_name, department_name, price, stock_quantity)
-values ("grey slacks", "clothing", 25.00, 10);
+values ("grey slacks", "clothing", 24.99, 10);
 insert into products (product_name, department_name, price, stock_quantity)
-values ("blue slacks", "clothing", 25.00, 12);
+values ("blue slacks", "clothing", 24.99, 12);
 insert into products (product_name, department_name, price, stock_quantity)
 values ("stuffed animal", "toys", 13.99, 8);
 insert into products (product_name, department_name, price, stock_quantity)
-values ("blocks", "toys", 8.50, 11);
+values ("blocks", "toys", 8.49, 11);

@@ -22,7 +22,7 @@ function listItems() {
             productList.push(
                 res[i]
             );
-            console.log("ID: " + res[i].item_id + ", qty: " + res[i].stock_quantity + ", name: " + res[i].product_name + ", price: $" + res[i].price);
+            console.log("ID: " + res[i].item_id + ", price: $" + res[i].price + ", quantity left: " + res[i].stock_quantity + ", product name: " + res[i].product_name);
         };
         // console.log(productList.toString() + "\n");
         purchaseItem()
@@ -44,16 +44,35 @@ function purchaseItem() {
             name: "quantity",
             filter: Number
         },
-        // {
-        //     type: "confirm",
-        //     message: "Is this order correct? " + productList[itemID].product_name + " quantity of " + productList[itemID].stock_quantity,
-        //     name: "order",
-        //     default: false
-        // }
-    ])
-        .then(function (orderCheck) {
-            // if (orderCheck.order) {
-            console.log(orderCheck);
-            console.log("Your order total is: $" + (orderCheck.quantity * parseInt(productList[orderCheck.itemID-1].price)));
-        })
+    ]).then(function (orderCheck) {
+        console.log("Your order: " + productList[orderCheck.itemIDproduct_name - 1] + ", quantity: " + orderCheck.quantity);
+        console.log("Your order total is: $" + (orderCheck.quantity * parseInt(productList[orderCheck.itemID - 1].price)));
+                                                                                                                // still not showing cents in price
+        inquirer.prompt([
+            {
+                type: "expand",
+                message: "Is this order correct? (Y/N)",
+                name: "confirm",
+                choices: [
+                    {
+                        key: "y",
+                        value: "yes",
+                    },
+                    {
+                        key: "n",
+                        value: "no",
+                    },
+                ],
+            },
+        ]);
+    });
+    // inquire if order is correct
+    
+    // if statement
+        // yes, reduce quantity, ask if they would like another order
+            // yes, rerun purchase item
+            // no, end
+        // no, ask if they would like another order, say order cancelled
+            // yes, rerun purchase item
+            // no, end
 };
