@@ -17,7 +17,7 @@ values ("package of pens", "office supplies", 3.99, 25);
 insert into products (product_name, department_name, price, stock_quantity)
 values ("coffee cup", "kitchen", 5.99, 50);
 insert into products (product_name, department_name, price, stock_quantity)
-values ("blender", "kitchen", 94.99, 70);
+values ("blender", "kitchen", 94.95, 70);
 insert into products (product_name, department_name, price, stock_quantity)
 values ("t-shirt", "clothing", 14.95, 25);
 insert into products (product_name, department_name, price, stock_quantity)

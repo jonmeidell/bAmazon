@@ -22,7 +22,7 @@ function listItems() {
             productList.push(
                 res[i]
             );
-            console.log("ID: " + res[i].item_id + ", price: $" + res[i].price + ", quantity left: " + res[i].stock_quantity + ", product name: " + res[i].product_name);
+            console.log("ID: " + res[i].item_id + ", price: $" + res[i].price.toFixed(2) + ", quantity left: " + res[i].stock_quantity + ", product name: " + res[i].product_name);
         };
         // console.log(productList.toString() + "\n");
         purchaseItem()
@@ -46,8 +46,8 @@ function purchaseItem() {
         },
     ]).then(function (orderCheck) {
         console.log("Your order: " + productList[orderCheck.itemIDproduct_name - 1] + ", quantity: " + orderCheck.quantity);
-        console.log("Your order total is: $" + (orderCheck.quantity * parseInt(productList[orderCheck.itemID - 1].price)));
-                                                                                                                // still not showing cents in price
+        console.log("Your order total is: $" + (orderCheck.quantity * (productList[orderCheck.itemID - 1].price)).toFixed(2));
+        // still not showing cents in price
         inquirer.prompt([
             {
                 type: "expand",
@@ -64,15 +64,25 @@ function purchaseItem() {
                     },
                 ],
             },
-        ]);
-    });
-    // inquire if order is correct
-    
+
+        ]).then(function (choicesConfirm) {
+            if (choicesConfirm.confirm === "yes") {
+                processOrder();
+            } else {
+                purchaseItem();
+            };
+        }
+        );
+    })
     // if statement
-        // yes, reduce quantity, ask if they would like another order
-            // yes, rerun purchase item
-            // no, end
-        // no, ask if they would like another order, say order cancelled
-            // yes, rerun purchase item
-            // no, end
+    // yes, reduce quantity, ask if they would like another order
+    // yes, rerun purchase item
+    // no, end
+    // no, ask if they would like another order, say order cancelled
+    // yes, rerun purchase item
+    // no, end
+
+
+// function processOrder() {
+
 };
