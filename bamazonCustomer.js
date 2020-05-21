@@ -73,16 +73,31 @@ function purchaseItem() {
             };
         }
         );
-    })
-    // if statement
-    // yes, reduce quantity, ask if they would like another order
-    // yes, rerun purchase item
-    // no, end
-    // no, ask if they would like another order, say order cancelled
-    // yes, rerun purchase item
-    // no, end
+    });
+};
 
-
-// function processOrder() {
-
+function processOrder() {
+    res[i].stock_quantity - orderCheck.quantity;
+    inquirer.prompt([
+        {
+            type: "expand",
+            message: "Would you like to place another order? (Y/N)",
+            name: "anotherOrder",
+            choices: [
+                {
+                    key: "y",
+                    value: "yes",
+                },
+                {
+                    key: "n",
+                    value: "no",
+                },
+            ],
+        },
+    ]).then(function (choicesAnotherOrder) {
+        if (choicesAnotherOrder.anotherOrder === "yes");
+        purchaseItem();
+    },
+        console.log("Thank you for shopping with us!")
+    );
 };
