@@ -25,12 +25,11 @@ function listItems() {
             console.log("ID: " + res[i].item_id + ", price: $" + res[i].price.toFixed(2) + ", quantity left: " + res[i].stock_quantity + ", product name: " + res[i].product_name);
         };
         // console.log(productList.toString() + "\n");
-        purchaseItem()
+        purchaseItem(res)
     });
-    connection.end();
 };
 
-function purchaseItem() {
+function purchaseItem(res) {
     inquirer.prompt([
         {
             type: "input",
@@ -67,37 +66,48 @@ function purchaseItem() {
 
         ]).then(function (choicesConfirm) {
             if (choicesConfirm.confirm === "yes") {
-                processOrder();
+                processOrder(res, orderCheck);
             } else {
-                purchaseItem();
+                purchaseItem(res);
             };
         }
         );
     });
 };
 
-function processOrder() {
-    res[i].stock_quantity - orderCheck.quantity;
-    inquirer.prompt([
-        {
-            type: "expand",
-            message: "Would you like to place another order? (Y/N)",
-            name: "anotherOrder",
-            choices: [
+//                              deconstructs
+function processOrder(res, { itemID, quantity }) {
+    // console.log(itemID);
+    let currentProduct = productList.filter(i => (i.item_id === itemID))
+    // console.log(currentProduct);
+    let newQuantity = currentProduct[0].stock_quantity - quantity;
+    connection.query(`UPDATE products SET stock_quantity = ${newQuantity} WHERE item_ID = ${itemID}`, function (err, res) {
+        console.log(err)
+        if (!err) {
+            inquirer.prompt([
                 {
-                    key: "y",
-                    value: "yes",
+                    type: "expand",
+                    message: "Would you like to place another order? (Y/N)",
+                    name: "anotherOrder",
+                    choices: [
+                        {
+                            key: "y",
+                            value: "yes",
+                        },
+                        {
+                            key: "n",
+                            value: "no",
+                        },
+                    ],
                 },
-                {
-                    key: "n",
-                    value: "no",
-                },
-            ],
-        },
-    ]).then(function (choicesAnotherOrder) {
-        if (choicesAnotherOrder.anotherOrder === "yes");
-        purchaseItem();
-    },
-        console.log("Thank you for shopping with us!")
-    );
+            ]).then(function (choicesAnotherOrder) {
+                if (choicesAnotherOrder.anotherOrder === "yes") {
+                    listItems()
+                } else {
+                    console.log()
+                    connection.end();
+                };
+            });
+        }
+    })
 };
