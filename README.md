@@ -1,8 +1,8 @@
-# bAmazon
+# `bAmazon`
 
 ![Stock list](https://jonmeidell.github.io/assets/images/bamazon.jpg)
 
-#### A mock storefront, (not to be confused with Amazon) for buying products using the command line prompt.
+#### `A mock storefront, (not to be confused with Amazon) for buying products using the command line prompt.`
 
 The customer storefront (use node bamazonCustomer.js) starts you off by listing all the products available for sale, including prices and quantites available:
 
